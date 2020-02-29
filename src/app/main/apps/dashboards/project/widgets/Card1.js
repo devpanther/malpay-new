@@ -1,14 +1,11 @@
 import React from "react";
 import 'react-credit-cards/es/styles-compiled.css';
 import Cards from 'react-credit-cards';
-import { connect } from 'react-redux'
 import { useSelector } from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import reducer from '../store/reducers';
 
-const Card1 = (props) => {
-  const card = useSelector(({ auth }) => auth.card.error);
-  console.log(card)
+const Card1 = ({ card }) => {
   return (
     <Cards
       cvc={card.cvc}
@@ -22,4 +19,4 @@ const Card1 = (props) => {
 }
 
 
-export default withReducer('Card1', reducer)(Card1);
+export default Card1;

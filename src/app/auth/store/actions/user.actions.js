@@ -93,10 +93,6 @@ export function addCardFirebaseAuthUser(dispatch) {
     }
 
     updateCardData(user);
-    dispatch({
-        type: SET_USER_DATA,
-        payload: user
-    })
 }
 
 /**

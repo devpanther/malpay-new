@@ -41,7 +41,6 @@ export class firebaseService {
         let ref = this.db.ref('/');
         ref.on('value', snapshot => {
             const state = snapshot.val();
-            console.log(state.cards)
             return state.cards;
         });
         console.log('DATA RETRIEVED');
@@ -59,10 +58,9 @@ export class firebaseService {
         if (!firebase.apps.length) {
             return;
         }
-        return this.db.ref(`cards/${user.uid}`)
+        return this.db.ref(`users/${user.uid}/data/cards`)
             .push(user.data).then((snap) => {
                 const key = snap.key
-                console.log(key)
             })
     };
 

@@ -16,7 +16,7 @@ import WidgetWeather from './widgets/WidgetWeather';
 import { makeStyles } from '@material-ui/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { Line } from 'react-chartjs-2';
-import Cards from './widgets/Cards'
+import CardList from './widgets/Cards'
 import PaymentForm from './widgets/PaymentForm'
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -46,8 +46,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ProjectDashboardApp = (props) => {
-    const card = useDispatch(({ auth }) => auth.card);
-    console.log(card.success)
+    const card = useDispatch(({ auth }) => auth);
     const [open, setOpen] = React.useState(false);
 
     const handleOpen = () => {
@@ -247,7 +246,7 @@ const ProjectDashboardApp = (props) => {
                                         </Fade>
                                     </Modal>
                                 </div>
-                                <div className="widget flex w-full" style={{ justifyContent: 'center', display: 'inline-grid' }}> <hr /><Cards /></div>
+                                <div className="widget flex w-full" style={{ justifyContent: 'center', display: 'inline-grid' }}> <hr /><CardList /></div>
 
                                 <div className="widget flex w-full p-12">
                                     <Line data={initialState} />

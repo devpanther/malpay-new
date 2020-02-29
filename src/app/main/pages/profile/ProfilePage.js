@@ -5,6 +5,10 @@ import {FusePageSimple, FuseAnimate} from '@fuse';
 import TimelineTab from './tabs/TimelineTab';
 import PhotosVideosTab from './tabs/PhotosVideosTab';
 import AboutTab from './tabs/AboutTab';
+import { useSelector } from 'react-redux';
+import withReducer from 'app/store/withReducer';
+import reducer from 'app/store/reducers';
+import Gravatar from 'react-gravatar'
 
 const useStyles = makeStyles(theme => ({
     layoutHeader: {
@@ -19,6 +23,8 @@ const useStyles = makeStyles(theme => ({
 
 function ProfilePage()
 {
+    let auth = (useSelector(({ auth }) => auth));
+    console.log(auth)
     const classes = useStyles();
     const [selectedTab, setSelectedTab] = useState(0);
 
@@ -37,10 +43,18 @@ function ProfilePage()
                 <div className="p-24 flex flex-1 flex-col items-center justify-center md:flex-row md:items-end">
                     <div className="flex flex-1 flex-col items-center justify-center md:flex-row md:items-center md:justify-start">
                         <FuseAnimate animation="transition.expandIn" delay={300}>
-                            <Avatar className="w-96 h-96" src="assets/images/avatars/Velazquez.jpg"/>
+                        {auth.user.data.photoURL && auth.user.data.photoURL !== '' ? <Avatar style={{ borderRadius: '200px' }} className="w-96 h-96" src={auth.user.data.photoURL}/> :
+                        <Gravatar
+                            className="w-96 h-96"
+                            alt="user photo"
+                            size={150}
+                            style={{ borderRadius: '200px' }}
+                            email={auth.user.data.email}
+                        />}
+                            
                         </FuseAnimate>
                         <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                            <Typography className="md:ml-24" variant="h4" color="inherit">John Doe</Typography>
+                            <Typography className="md:ml-24" variant="h4" color="inherit">{auth.user.data.displayName}</Typography>
                         </FuseAnimate>
                     </div>
 
@@ -95,4 +109,4 @@ function ProfilePage()
     )
 }
 
-export default ProfilePage;
+export default withReducer('ProfilePage', reducer)(ProfilePage);

@@ -30,7 +30,7 @@ function Logo() {
 
     return (
         <div className={clsx(classes.root, "flex items-center")}>
-            <img className="logo-icon" src="assets/images/logos/fuse.svg" alt="logo" />
+            <img className="logo-icon" src="assets/images/logos/fuse.png" alt="logo" />
         </div>
     );
 }
