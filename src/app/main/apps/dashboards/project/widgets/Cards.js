@@ -13,7 +13,6 @@ const CardList = (props) => {
   let newCard = useSelector(({auth}) => auth.card.error)
   let card = (useSelector(({ auth }) => auth.user.data.cards));
   let deletion = (useSelector(({ auth }) => auth));
-  console.log(deletion)
 
   // for (let key in card) {
   //   console.log(card[key]);
@@ -35,6 +34,9 @@ const CardList = (props) => {
         swal("Your card has been deleted!", {
           icon: "success",
         });
+        setTimeout(() => {
+          window.location.reload();
+          },1000)
       } else {
         swal("Your card is safe!");
       }

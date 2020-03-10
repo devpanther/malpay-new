@@ -1,4 +1,5 @@
 import React from 'react';
+import { authRoles } from 'app/auth';
 
 export const FileManagerAppConfig = {
     settings: {
@@ -6,6 +7,7 @@ export const FileManagerAppConfig = {
             config: {}
         }
     },
+    auth: authRoles.admin,//['admin']
     routes  : [
         {
             path     : '/apps/file-manager',
