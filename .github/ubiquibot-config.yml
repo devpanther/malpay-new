@@ -1,5 +1,5 @@
 ---
-baseMultiplier: 2500
+baseMultiplier: 3000
 timeLabels:
   - name: "Time: <1 Hour"
     weight: 0.125
