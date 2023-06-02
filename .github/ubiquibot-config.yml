@@ -1,4 +1,4 @@
-base-multiplier: 1500
+base-multiplier: 2000
 time-labels:
   - name: "Time: <1 Hour"
     weight: 0.125
