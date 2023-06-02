@@ -28,4 +28,4 @@ priority-labels:
     weight: 5
 auto-pay-mode: true
 analytics-mode: true
-max-concurrent-bounties: 2
+max-concurrent-bounties: 3
