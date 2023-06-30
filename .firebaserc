@@ -1,5 +1,6 @@
 {
   "projects": {
     "default": "malpay-web",
+    "sss": "test"
   }
 }
